@@ -1,4 +1,5 @@
 # include <stdio.h>
+# include <stdlib.h>
 
 /*
 1.  Here is m=10, n and o are two integer variable and *z is an integer                                                                                                                                                      
@@ -104,15 +105,207 @@ void answerNumber3(){
     int m = 300;                                                                                                      
     double fx = 300.600006;                                                                                              
     char cht = 'z';
+    int* pt1 = &m;
+    double* pt2 = &fx;
+    char* pt3 = &cht;
+
     printf("Using & operator :\n");
     printf("address of m = %p\n", &m);
     printf("address of fx = %p\n", &fx);
     printf("address of cht = %p\n", &cht);
 
     printf("Using & and * operator\n");
-    printf("value at address of m = %d\n", m);
-    printf("value at address of fx = %f\n", fx);
-    printf("value at address of cht = %c\n", cht);
+    printf("value at address of m = %d\n", *(&m));
+    printf("value at address of fx = %f\n", *(&fx));
+    printf("value at address of cht = %c\n", *(&cht));
+    
+    printf("Using only pointer variable\n");
+    printf("address of m = %p\n", pt1);
+    printf("address of fx = %p\n", pt2);
+    printf("address of cht = %p\n", pt3);
+
+    printf("Using only pointer operator\n");
+    printf("value at address of m = %d\n", *pt1);
+    printf("value at address of fx = %f\n", *pt2);
+    printf("value at address of cht = %c\n", *pt3);
+    printf("\n");
+}
+
+/*
+4.  Write a program in C to add two numbers using pointers.
+    Test Data :
+    Input the first number : 5
+    Input the second number : 6
+    Expected Output :
+
+    The sum of the entered numbers is : 11 
+*/
+
+void answerNumber4(){
+    int num1, num2, sum;
+    int* pt1;
+    int* pt2;
+    printf("Input the first number: ");
+    scanf("%d", &num1);
+    printf("Input the second number: ");
+    scanf("%d", &num2);
+    pt1 = &num1;
+    pt2 = &num2;
+    sum = *pt1 + *pt2;
+    printf("The sum of the entered numbers is : %d\n", sum);
+}
+
+/*
+5.  Write a program in C to add numbers using call by reference.
+    Test Data :
+    Input the first number : 5
+    Input the second number : 6
+    Expected Output :
+
+    The sum of 5 and 6  is 11 
+*/
+
+void answerNumber5(){
+    int num1, num2, sum;
+    int* pt1;
+    int* pt2;
+    printf("Input the first number: ");
+    scanf("%d", &num1);
+    printf("Input the second number: ");
+    scanf("%d", &num2);
+    pt1 = &num1;
+    pt2 = &num2;
+    sum = *pt1 + *pt2;
+    printf("The sum of %d and %d is : %d\n", num1, num2, sum);
+}
+
+/*
+6.  Write a program in C to find the maximum number between two numbers using a pointer.
+    Test Data :
+    Input the first number : 5
+    Input the second number : 6
+    Expected Output :
+
+    6 is the maximum number.  
+*/
+
+void answerNumber6(){
+    int num1, num2, max;
+    int* pt1;
+    int* pt2;
+    printf("Input the first number: ");
+    scanf("%d", &num1);
+    printf("Input the second number: ");
+    scanf("%d", &num2);
+    pt1 = &num1;
+    pt2 = &num2;
+    if(*pt1 > *pt2){
+        max = *pt1;
+    }else{
+        max = *pt2;
+    }
+    printf("%d is the maximum number.\n", max);
+}
+
+/*
+7.  Write a program in C to store n elements in an array and print the elements using a pointer.
+    Test Data :
+    Input the number of elements to store in the array :5
+    Input 5 number of elements in the array :
+    element - 0 : 5
+    element - 1 : 7
+    element - 2 : 2
+    element - 3 : 9
+    element - 4 : 8
+    Expected Output :
+
+    The elements you entered are :                                                                               
+    element - 0 : 5                                                                                              
+    element - 1 : 7                                                                                              
+    element - 2 : 2                                                                                              
+    element - 3 : 9                                                                                              
+    element - 4 : 8  
+*/
+
+void answerNumber7(){
+    int enteredLength;
+    int enteredNum;
+    int* length;
+    int* num;
+    printf("Input the number of elements to store in the array: ");
+    scanf("%d", &enteredLength);
+    length = &enteredLength;
+    int numbers[*length];
+
+    printf("Input %d number of elements in the array :\n", *length);
+    for(int i = 0; i < *length; i++){
+        printf("element - %d : ", i);
+        scanf("%d", &enteredNum);
+        num = &enteredNum;
+        numbers[i] = *num;
+    }
+
+    printf("The elements you entered are : %d\n", *length);
+    for(int i = 0; i < *length; i++){
+        printf("element - %d : %d\n", i, numbers[i]);
+    }
+}
+
+/*
+8.  Write a program in C to print all permutations of a given string using pointers.
+    Expected Output :
+
+    The permutations of the string are :                                                                         
+    abcd  abdc  acbd  acdb  adcb  adbc  bacd  badc  bcad  bcda  bdca  bdac  
+    cbad  cbda  cabd  cadb  cdab  cdba  dbca  dbac  dcba  dcab  dacb  dabc
+*/
+
+// void answerNumber8(){
+//     char* str[4];
+//     printf("The permutations of the strng are : ");
+//     scanf("%s", &str);
+//     printf("This is the ptStr value %s", *str);
+// }
+
+/*
+9.  Write a program in C to find the largest element using Dynamic Memory Allocation.
+    Test Data :
+    Input total number of elements(1 to 100): 5
+
+    Number 1: 5
+    Number 2: 7
+    Number 3: 2
+    Number 4: 9
+    Number 5: 8
+    Expected Output :
+
+    The Largest element is :  9.00 
+*/
+
+void answerNumber9(){
+    int numElements;
+    int enteredNumber;
+    int maxNumber = 0;
+    int* ptr;
+    printf("Input total number of elements(1 to 100): \n");
+    scanf("%d", &numElements);
+
+    ptr = (int*)malloc(numElements * sizeof(int));
+
+    if(ptr == NULL){
+        exit(0);
+    }else {
+        for (int i=0; i<numElements; i++){
+            printf("Number %d: ", i+1);
+            scanf("%d", &enteredNumber);
+            ptr[i] = enteredNumber;
+            if(maxNumber < ptr[i]){
+                maxNumber = ptr[i];
+            }
+        }
+    }
+    printf("The Largest element is : %d\n", maxNumber);
+    free(ptr);
 }
 
 // main function
@@ -120,5 +313,11 @@ int main(){
     answerNumber1();
     answerNumber2();
     answerNumber3();
+    // answerNumber4();
+    // answerNumber5();
+    // answerNumber6();
+    // answerNumber7();
+    // answerNumber8();
+    answerNumber9();
     return 0;
 }
