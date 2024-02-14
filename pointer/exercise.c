@@ -379,6 +379,28 @@ void answerNumber11(){
 
 }
 
+/*
+12. Write a program in C to find the factorial of a given number using pointers.
+    Test Data :
+    Input a number : 5
+    Expected Output :
+
+    The Factorial of 5 is : 120
+*/
+
+void answerNumber12(){
+    int enteredNumber;
+    int factorialNumber = 1;
+    printf("Input a number: ");
+    scanf("%d", &enteredNumber);
+
+    for(int i = enteredNumber + 1; i > 1; i--){
+       factorialNumber = factorialNumber * (i-1);
+    }
+    
+    printf("The Factorial of %d is : %d\n", enteredNumber, factorialNumber);
+}
+
 // main function
 int main(){
     answerNumber1();
@@ -391,6 +413,7 @@ int main(){
     // answerNumber8();
     // answerNumber9();
     // answerNumber10();
-    answerNumber11();
+    // answerNumber11();
+    answerNumber12();
     return 0;
 }
