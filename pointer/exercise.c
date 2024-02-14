@@ -308,6 +308,63 @@ void answerNumber9(){
     free(ptr);
 }
 
+/*
+10. Write a program in C to calculate the length of a string using a pointer.
+    Test Data :
+    Input a string : w3resource
+    Expected Output :
+
+    The length of the given string w3resource                                                                    
+    is : 10    
+*/
+
+void answerNumber10(){
+    char string[] = "string";
+    char* ptr = string;
+    printf("Input a string : %s\n", string);
+    scanf("%s", string);
+    while(*ptr){
+        ptr++;
+    }
+    int len = ptr - string;
+    printf("The length of the given string %s is : %d\n",string, len);
+}
+
+/*
+11. Write a program in C to swap elements using call by reference.
+    Test Data :
+    Input the value of 1st element : 5
+    Input the value of 2nd element : 6
+    Input the value of 3rd element : 7
+    Expected Output :
+
+    The value before swapping are :                                                                              
+    element 1 = 5                                                                                                
+    element 2 = 6                                                                                                
+    element 3 = 7                                                                                                
+                                                                                                             
+    The value after swapping are :                                                                               
+    element 1 = 7                                                                                                
+    element 2 = 5                                                                                                
+    element 3 = 6 
+*/
+
+void answerNumber11(){
+    int* numbers[3];
+    int* ptr;
+    for(int i = 0; i < 3; i++){
+        printf("Input the value of %dst element : ", i + 1);
+        scanf("%p", &ptr);
+        numbers[i] = ptr;
+        printf("Value %d", *ptr);
+    }
+
+    printf("The value before swapping are : \n");
+    // for (int i = 0; i < 3; i++){
+    //     printf("Element %d = %d\n", i + 1, 1);
+    // }
+}
+
 // main function
 int main(){
     answerNumber1();
@@ -318,6 +375,8 @@ int main(){
     // answerNumber6();
     // answerNumber7();
     // answerNumber8();
-    answerNumber9();
+    // answerNumber9();
+    // answerNumber10();
+    answerNumber11();
     return 0;
 }
