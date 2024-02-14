@@ -350,19 +350,33 @@ void answerNumber10(){
 */
 
 void answerNumber11(){
-    int* numbers[3];
-    int* ptr;
-    for(int i = 0; i < 3; i++){
-        printf("Input the value of %dst element : ", i + 1);
-        scanf("%p", &ptr);
-        numbers[i] = ptr;
-        printf("Value %d", *ptr);
-    }
+    int num1, num2, num3;
+   
+    printf("Input the value of 1st element : ");
+    scanf("%d", &num1);
+
+    printf("Input the value of 2nd element : ");
+    scanf("%d", &num2);
+
+    printf("Input the value of 3rd element : ");
+    scanf("%d", &num3);
+    
 
     printf("The value before swapping are : \n");
-    // for (int i = 0; i < 3; i++){
-    //     printf("Element %d = %d\n", i + 1, 1);
-    // }
+    printf("Element 1 = %d\n", num1);
+    printf("Element 2 = %d\n", num2);
+    printf("Element 3 = %d\n", num3);
+
+    int tmp = num1;
+    num1 = num2;
+    num2 = num3;
+    num3 = tmp;
+
+    printf("The value after swapping are : \n");
+    printf("Element 1 = %d\n", num1);
+    printf("Element 2 = %d\n", num2);
+    printf("Element 3 = %d\n", num3);
+
 }
 
 // main function
