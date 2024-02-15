@@ -401,6 +401,34 @@ void answerNumber12(){
     printf("The Factorial of %d is : %d\n", enteredNumber, factorialNumber);
 }
 
+/*
+13. Write a program in C to count the number of vowels and consonants in a string using a pointer.
+    Test Data :
+    Input a string: string
+    Expected Output :
+
+    Number of vowels : 1                                                                                         
+    Number of constant : 5
+*/
+
+void answerNumber13(){
+    char vowels[5] = "aiueo";
+    char* string;
+    char enteredString;
+    
+    printf("Input a string: ");
+    scanf("%s", &enteredString);
+
+    string = &enteredString;
+    while (*string)
+    {
+        string++;
+    }
+    
+    int len = string - &enteredString;
+    printf("value %d\n", len);
+}
+
 // main function
 int main(){
     answerNumber1();
@@ -414,6 +442,7 @@ int main(){
     // answerNumber9();
     // answerNumber10();
     // answerNumber11();
-    answerNumber12();
+    // answerNumber12();
+    answerNumber13();
     return 0;
 }
