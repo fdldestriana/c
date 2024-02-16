@@ -423,10 +423,58 @@ void answerNumber13(){
     while (*string)
     {
         string++;
+        printf("%c\n", *string);
     }
     
     int len = string - &enteredString;
-    printf("value %d\n", len);
+    printf("value %p\n", &enteredString);
+    printf("value %c\n", *(&enteredString));
+}
+
+
+/*
+14. Write a program in C to sort an array using a pointer.
+    Test Data :
+    testdata
+    Expected Output :
+
+    Test Data :
+    Input the number of elements to store in the array : 5
+    Input 5 number of elements in the array :
+    element - 1 : 25
+    element - 2 : 45
+    element - 3 : 89
+    element - 4 : 15
+    element - 5 : 82
+    Expected Output :
+                                                                                           
+    The elements in the array after sorting :                                                                    
+    element - 1 : 15                                                                                             
+    element - 2 : 25                                                                                             
+    element - 3 : 45                                                                                             
+    element - 4 : 82                                                                                             
+    element - 5 : 89  
+*/
+
+void answerNumber14(){
+    int length;
+
+    printf("Input the number of elements to store in the array : ");
+    scanf("%d", &length);
+
+    int numbers[length];
+    int enteredNumber;
+    
+    printf("Input %d number of elements in the array : \n", length);
+    for(int i=0; i<length; i++){
+        printf("element - %d : ", i+1);
+        scanf("%d", &enteredNumber);
+        numbers[i] = enteredNumber;
+    }
+
+    for(int i=0; i<length; i++){
+
+    }
 }
 
 // main function
@@ -443,6 +491,7 @@ int main(){
     // answerNumber10();
     // answerNumber11();
     // answerNumber12();
-    answerNumber13();
+    // answerNumber13();
+    answerNumber14();
     return 0;
 }
