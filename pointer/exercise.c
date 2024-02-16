@@ -457,15 +457,16 @@ void answerNumber13(){
 */
 
 void answerNumber14(){
-    int length;
+    // defining variables
+    int length, enteredNumber;
+    int* numbers;
 
     printf("Input the number of elements to store in the array : ");
     scanf("%d", &length);
-
-    int numbers[length];
-    int enteredNumber;
     
     printf("Input %d number of elements in the array : \n", length);
+    numbers = (int*) calloc(length, sizeof(int));
+
     for(int i=0; i<length; i++){
         printf("element - %d : ", i+1);
         scanf("%d", &enteredNumber);
@@ -473,8 +474,21 @@ void answerNumber14(){
     }
 
     for(int i=0; i<length; i++){
-
+        for(int j=i+1; j<length; j++){
+            if(numbers[i] > numbers[j]){
+                int temp = numbers[i];
+                numbers[i] = numbers[j];
+                numbers[j] = temp;
+            }
+        }
     }
+
+    printf("The elements in the array after sorting : \n");
+    for(int i=0; i<length; i++){
+        printf("element - %d : %d\n", i+1, numbers[i]);
+    }
+
+    free(numbers);
 }
 
 // main function
