@@ -624,6 +624,27 @@ void answerNumber17(){
     }
 }
 
+/*
+18. Write a program in C to demonstrate the use of pointers to structures.
+    Expected Output :
+
+    John Alter from Court Street
+*/
+
+void answerNumber18(){
+    struct EmpAddress
+    {
+        char *ename;
+        char staddress[20];
+        int pincode;
+    };
+
+    struct EmpAddress employee = {"John Alter", "Court Street", 654321};
+    struct EmpAddress* pt = &employee;
+    
+    printf("%s from %s \n\n", pt->ename, (*pt).staddress);
+}
+
 // main function
 int main(){
     answerNumber1();
@@ -642,6 +663,7 @@ int main(){
     // answerNumber14();
     // printf("The number %d is larger.\n",*answerNumber15());
     // answerNumber16();
-    answerNumber17();
+    // answerNumber17();
+    answerNumber18();
     return 0;
 }
