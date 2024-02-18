@@ -645,6 +645,111 @@ void answerNumber18(){
     printf("%s from %s \n\n", pt->ename, (*pt).staddress);
 }
 
+/*
+19. Write a program in C to show a pointer to a union.
+    Expected Output :
+
+    Jhon Mc Jhon Mc    
+*/
+
+void answerNumber19(){
+    union empAdd
+    {   
+        char *ename;
+        char stname[20];
+        int pincode;
+    };
+    
+    union empAdd employee;
+    employee.ename = "John Mc";
+
+    union empAdd* ptr;
+    ptr = &employee;
+
+    printf("%s %s\n", ptr->ename, (*ptr).ename);
+}
+
+/*
+20. Write a program in C to show a pointer to an array whose contents are pointers to structures.
+    Expected Output :
+
+    Employee Name : Alex                                                                                        
+    Employee ID :  1002 
+*/
+
+void answerNumber20(){
+    // defining a struct
+    struct Employee
+    {
+        char *ename;
+        int eid;
+    };
+    
+    // defining Employee struct variable
+    struct Employee employee1 = {"Alex", 1002};
+    struct Employee employee2 = {"Rawling", 1003};
+
+    // defining an array of pointers which are pointed to Employee struct
+    struct Employee *employees[2];
+
+    // assigning the first element of an array
+    employees[0] = &employee1;
+    employees[1] = &employee2;
+
+    // accessing each element values of an array using pointer
+    printf("Employee Name : %s\n", (*employees[0]).ename);
+    printf("Employee ID : %d\n", (*employees[0]).eid);
+    printf("Employee Name : %s\n", (*employees[1]).ename);
+    printf("Employee ID : %d\n", (*employees[1]).eid);
+}
+
+/*
+21. Write a program in C to print all the alphabets using a pointer.
+    Expected Output :
+
+    The Alphabets are :                                                                                         
+    A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z 
+*/
+
+void answerNumber21(){}
+
+/*
+22. Write a program in C to print a string in reverse using a pointer.
+    Test Data :
+    Input a string : w3resource
+    Expected Output :
+
+    Pointer : Print a string in reverse order :                                                                  
+    ------------------------------------------------                                                              
+    Input a string : w3resource                                                                                  
+    Reverse of the string is : ecruoser3w 
+*/
+
+void answerNumber22(){
+    char inputString[100];
+    char *str = inputString;
+    int len = 0;
+
+    printf("Pointer : Print a string in reverse order :\n");
+    printf("------------------------------------------------\n");
+    
+    printf("Input a string : ");
+    scanf("%s", inputString);
+
+    while(*str){
+        str++;
+        len++;
+    }  
+    
+    printf("Reverse of the string is : ");
+    while(len>=0){
+        printf("%c", *str);
+        str--;
+        len--;
+    }
+    printf("\n");
+}
+
 // main function
 int main(){
     answerNumber1();
@@ -665,5 +770,9 @@ int main(){
     // answerNumber16();
     // answerNumber17();
     answerNumber18();
+    answerNumber19();
+    answerNumber20();
+    // answerNumber21();
+    answerNumber22();
     return 0;
 }
