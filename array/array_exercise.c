@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 /*
 1. Write a program in C to store elements in an array and print them.
@@ -301,6 +302,67 @@ void answerNumber7(){
     printf("\n");
 }
 
+/*
+8.  Write a program in C to count the frequency of each element of an array.
+    Test Data :
+    Input the number of elements to be stored in the array :3   
+    Input 3 elements in the array :
+    element - 0 : 25
+    element - 1 : 12
+    element - 2 : 43
+    Expected Output :
+    The frequency of all elements of an array :
+    25 occurs 1 times
+    12 occurs 1 times
+    43 occurs 1 times
+*/
+
+void answerNumber8(){
+    // NOT SOLVED YET
+}
+
+/*
+9.  Write a program in C to find the maximum and minimum elements in an array.
+    Test Data :
+    Input the number of elements to be stored in the array :3
+    Input 3 elements in the array :
+    element - 0 : 45
+    element - 1 : 25
+    element - 2 : 21
+    Expected Output :
+    Maximum element is : 45
+    Minimum element is : 21
+*/
+
+void answerNumber9(){
+    int len, min=100, max=0;
+
+    printf("Input the number of elements to be stored in the array : ");
+    scanf("%d", &len);
+
+    int arr[len];
+    printf("Input %d elements in the array : \n", len);
+    for(int i=0; i<len; i++){
+        printf("element - %d : ", i);
+        scanf("%d", &arr[i]);
+    }
+
+    for(int i=0; i<len; i++){
+        for(int j=i+1; j<len; j++){
+            if(arr[i] > arr[j]){
+                min = arr[j];
+            }
+        }
+        if(arr[i] > max){
+            max = arr[i];
+        }
+    }
+
+    printf("Maximum element is : %d\n", max);
+    printf("Minimum element is : %d\n", min);
+
+}
+
 int main(){
     // answerNumber1();
     // answerNumber2();
@@ -308,6 +370,8 @@ int main(){
     // answerNumber4();
     // answerNumber5();
     // answerNumber6();
-    answerNumber7();
+    // answerNumber7();
+    // answerNumber8();
+    answerNumber9();
     return 0;
 }
