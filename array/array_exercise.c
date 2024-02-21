@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /*
 1. Write a program in C to store elements in an array and print them.
@@ -181,11 +182,132 @@ void answerNumber5(){
     printf("Total number of duplicate elements found in the array is : %d\n", totalDuplicate+1);
 }
 
+/*
+6.  Write a program in C to print all unique elements in an array.
+    Test Data :
+    Print all unique elements of an array:
+    ------------------------------------------
+    Input the number of elements to be stored in the array: 4
+    Input 4 elements in the array :
+    element - 0 : 3
+    element - 1 : 2
+    element - 2 : 2
+    element - 3 : 5
+    Expected Output :
+    The unique elements found in the array are : 3 5
+*/
+
+void answerNumber6(){
+    // NOT SOLVED YET
+    int len;
+
+    printf("Input the number of elements to be stored in the array : ");
+    scanf("%d", &len);
+
+    int arr1[len];
+    int arr2[len];
+    printf("Input %d elements in the array : \n", len);
+    for(int i=0; i<len; i++){ 
+        printf("element - %d : ", i); 
+        scanf("%d", &arr1[i]);
+    }
+
+    for(int i=0; i<len; i++){
+        for(int j=i+1; j<len; j++){
+            if(arr1[i] == arr1[j]){
+                break;
+            }
+        }
+        arr2[i] = arr1[i];
+        printf("arr1 %d arr2 %d\n", arr1[i], arr2[i]);
+    }
+
+    printf("The unique elements found in the array are : ");
+    for(int i=0; i<len; i++){
+        printf("%d ", arr2[i]);
+    }
+    printf("\n");
+}
+
+/*
+7.  Write a program in C to merge two arrays of the same size sorted in descending order.
+    Test Data :
+    Input the number of elements to be stored in the first array :3
+    Input 3 elements in the array :
+    element - 0 : 1
+    element - 1 : 2
+    element - 2 : 3
+    Input the number of elements to be stored in the second array :3
+    Input 3 elements in the array :
+    element - 0 : 1
+    element - 1 : 2
+    element - 2 : 3
+    Expected Output :
+    The merged array in decending order is : 3 3 2 2 1 1
+*/
+
+void answerNumber7(){
+    int len;
+    int totalLength = 0;
+
+    printf("Input the number of elements to be stored in the first array : ");
+    scanf("%d", &len);
+    totalLength = totalLength + len;
+    printf("Input %d elements in the array : \n", len);
+    
+    int arr1[len];
+    for(int i=0; i<len; i++){ 
+        printf("element - %d : ", i); 
+        scanf("%d", &arr1[i]);
+    }
+
+    printf("Input the number of elements to be stored in the second array : ");
+    scanf("%d", &len);
+    if(len != (sizeof(arr1)/sizeof(int))){ printf("The number of elements of the second array not as big as the number elements of the first array\n"); exit(0); }
+    totalLength = totalLength + len;
+    printf("Input %d elements in the array : \n", len);
+    
+    int arr2[len];
+    for(int i=0; i<len; i++){ 
+        printf("element - %d : ", i); 
+        scanf("%d", &arr2[i]);
+    }
+    
+    int arr3[totalLength];
+    for(int i=0; i<totalLength/2; i++){
+        arr3[i] = arr1[i];
+    }
+
+    int j=0;
+    for(int i=totalLength-1; i>=totalLength/2; i--){
+        arr3[i] = arr2[j];
+        j++;
+    }
+
+    for(int i=0; i<totalLength; i++){
+        for(int j=i+1; j<totalLength; j++){
+            if(arr3[i] < arr3[j]){
+                int tmp = arr3[i];
+                arr3[i] = arr3[j];
+                arr3[j] = tmp;
+            }
+        }
+    }
+
+    printf("The merged array in descending order is : ");
+    for(int i=0; i<totalLength; i++){
+        printf("%d ", arr3[i]);
+    }
+    printf("\n");
+}
+
 int main(){
     // answerNumber1();
     // answerNumber2();
     // answerNumber3();
     // answerNumber4();
-    answerNumber5();
+    // answerNumber5();
+    // answerNumber6();
+    answerNumber7();
     return 0;
 }
