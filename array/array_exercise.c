@@ -342,7 +342,8 @@ void answerNumber9(){
 
     int arr[len];
     printf("Input %d elements in the array : \n", len);
-    for(int i=0; i<len; i++){
+    for(int i=0; i<len; i++)
+    {
         printf("element - %d : ", i);
         scanf("%d", &arr[i]);
     }
@@ -363,6 +364,214 @@ void answerNumber9(){
 
 }
 
+/*
+10. Write a program in C to separate odd and even integers into separate arrays.
+    Test Data :
+    Input the number of elements to be stored in the array :5
+    Input 5 elements in the array :
+    element - 0 : 25
+    element - 1 : 47
+    element - 2 : 42
+    element - 3 : 56
+    element - 4 : 32
+    Expected Output :
+    The Even elements are : 42 56 32
+    The Odd elements are : 25 47
+*/
+
+void answerNumber10(){
+    int len;
+    int arr[len];
+
+    printf("Input the number of elements to be stored in the array : ");
+    scanf("%d", &len);
+
+    printf("Input %d elements in the array : \n", len);
+    int i=0;
+    while(i<len){
+        printf("element - %d : ", i);
+        scanf("%d", &arr[i]);
+        i++;
+    }
+
+    printf("The Even elements are : ");
+    for(int i=0; i<len; i++){
+        if(arr[i]%2==0){
+            printf("%d ", arr[i]);
+        }
+    }
+    printf("\n");
+
+    printf("The Odd elements are : ");
+    for(int i=0; i<len; i++){
+        if(arr[i]%2!=0){
+            printf("%d ", arr[i]);
+        }
+    }
+    printf("\n");
+}
+
+/*
+11. Write a program in C to sort elements of an array in ascending order.
+    Test Data :
+    Input the size of array : 5
+    Input 5 elements in the array :
+    element - 0 : 2
+    element - 1 : 7
+    element - 2 : 4
+    element - 3 : 5
+    element - 4 : 9
+    Expected Output :
+    Elements of array in sorted ascending order: 2 4 5 7 9
+*/
+
+void answerNumber11(){
+    int len;
+
+    printf("Input the size of the array : ");
+    scanf("%d", &len);
+
+    int arr[len];
+    printf("Input %d elements in the array : \n", len);
+    for(int i=0; i<len; i++)
+    {
+        printf("element - %d : ", i);
+        scanf("%d", &arr[i]);
+    }
+
+    for(int i=0; i<len; i++)
+    {
+        for (int j = i+1; j < len; j++)
+        {
+            if(arr[i] > arr[j]){
+                int tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+            }
+        }
+        
+    }
+
+    printf("Elements of array in sorted ascending order : ");
+    for (int i = 0; i < len; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+/*
+12. Write a program in C to sort the elements of the array in descending order.
+    Test Data :
+    Input the size of array : 3
+    Input 3 elements in the array :
+    element - 0 : 5
+    element - 1 : 9
+    element - 2 : 1
+    Expected Output :
+    Elements of the array in sorted descending order : 9 5 1
+*/
+
+void answerNumber12(){
+    int len;
+
+    printf("Input the size of the array : ");
+    scanf("%d", &len);
+
+    int arr[len];
+    printf("Input %d elements in the array : \n", len);
+    for(int i=0; i<len; i++)
+    {
+        printf("element - %d : ", i);
+        scanf("%d", &arr[i]);
+    }
+
+    for(int i=0; i<len; i++)
+    {
+        for (int j = i+1; j < len; j++)
+        {
+            if(arr[i] > arr[j]){
+                int tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+            }
+        }
+        
+    }
+
+    printf("Elements of array in sorted descending order : ");
+    for (int i = len-1; i >= 0; i--)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+/*
+13. Write a program in C to insert the values in the array (sorted list).
+    Test Data :
+    Insert New value in the sorted array :
+    -----------------------------------------
+    Input the size of array : 5
+    Input 5 elements in the array in ascending order:
+    element - 0 : 2
+    element - 1 : 5
+    element - 2 : 7
+    element - 3 : 9
+    element - 4 : 11
+    Input the value to be inserted : 8
+    The exist array list is : 2 5 7 9 11
+    After Insert the list is :  2 5 7 8 9 11
+*/
+
+void answerNumber13(){
+    int lenArr1;
+
+    printf("Input the size of array : ");
+    scanf("%d", &lenArr1);
+
+    int arr1[lenArr1];
+    int lenArr2 = lenArr1+1;
+    int arr2[lenArr2];
+    printf("Input %d elements in the array in ascending order : \n", lenArr1);
+    for (int i = 0; i < lenArr1; i++)
+    {
+        printf("element - %d : ", i);
+        scanf("%d", &arr1[i]);
+        *(arr2 + i) = *(arr1 + i);
+    }
+
+    printf("Input the value to be inserted : ");
+    scanf("%d", &arr2[lenArr2-1]);
+    
+    printf("The exist array list is : ");
+    for (int i = 0; i < lenArr1; i++)
+    {
+        printf("%d ", arr1[i]);
+    }
+    printf("\n");
+
+
+    for(int i=0; i<lenArr2; i++)
+    {
+        for (int j = i+1; j < lenArr2; j++)
+        {
+            if(arr2[i] > arr2[j]){
+                int tmp = arr2[i];
+                arr2[i] = arr2[j];
+                arr2[j] = tmp;
+            }
+        }
+        
+    }
+    printf("After Insert the list is : ");
+    for (int i = 0; i < lenArr2; i++)
+    {
+        printf("%d ", arr2[i]);
+    }
+    printf("\n");
+}
+
 int main(){
     // answerNumber1();
     // answerNumber2();
@@ -372,6 +581,10 @@ int main(){
     // answerNumber6();
     // answerNumber7();
     // answerNumber8();
-    answerNumber9();
+    // answerNumber9();
+    // answerNumber10();
+    // answerNumber11();
+    // answerNumber12();
+    answerNumber13();
     return 0;
 }
