@@ -572,6 +572,118 @@ void answerNumber13(){
     printf("\n");
 }
 
+/*
+14. Write a program in C to insert values in the array (unsorted list).
+    Test Data :
+    Input the size of array : 4
+    Input 4 elements in the array in ascending order:
+    element - 0 : 1
+    element - 1 : 8
+    element - 2 : 7
+    element - 3 : 10
+    Input the value to be inserted : 5
+    Input the Position, where the value to be inserted :2
+    Expected Output :
+    The current list of the array : 1 8 7 10
+    After Insert the element the new list is : 1 5 8 7 10
+*/
+
+void answerNumber14(){
+    int lenArr1;
+
+    printf("Input the size of array : ");
+    scanf("%d", &lenArr1);
+
+    int arr1[lenArr1];
+    int lenArr2 = lenArr1+1;
+    int arr2[lenArr2];
+    printf("Input %d elements in the array in ascending order : \n", lenArr1);
+    for (int i = 0; i < lenArr1; i++)
+    {
+        printf("element - %d : ", i);
+        scanf("%d", &arr1[i]);
+        *(arr2 + i) = *(arr1 + i);
+    }
+
+    printf("Input the value to be inserted : ");
+    scanf("%d", &arr2[lenArr2-1]);
+
+    int newPosition;
+    printf("Input the Position, where the value to be inserted : ");
+    scanf("%d", &newPosition);
+    
+    printf("The current list of the array : ");
+    for (int i = 0; i < lenArr1; i++)
+    {
+        printf("%d ", arr1[i]);
+    }
+    printf("\n");
+
+    // swapping position of the last inserted number in the new arrray
+    int tmp = arr2[lenArr2-1];
+    arr2[lenArr2-1] = arr2[newPosition-1];
+    arr2[newPosition-1] = tmp;
+    
+    printf("After Insert the element the new list is : ");
+    for (int i = 0; i < lenArr2; i++)
+    {
+        printf("%d ", arr2[i]);
+    }
+    printf("\n");
+}
+
+/*
+15. Write a program in C to delete an element at a desired position from an array.
+    Test Data :
+    Input the size of array : 5 
+    Input 5 elements in the array in ascending order:
+    element - 0 : 1
+    element - 1 : 2
+    element - 2 : 3
+    element - 3 : 4
+    element - 4 : 5
+    Input the position where to delete: 3
+    Expected Output :
+    The new list is : 1 2 4 5
+*/
+
+void answerNumber15(){
+    // NOT SOLVED YET
+    int len;
+
+    printf("Input the size of array : ");
+    scanf("%d", &len);
+
+    int arr1[len];
+    printf("Input %d elements in the array in ascending order : \n", len);
+    for (int i = 0; i < len; i++)
+    {
+        printf("element - %d : ", i);
+        scanf("%d", &arr1[i]);
+    }
+
+    int deletedPosition;
+    printf("Input the position where to delete : ");
+    scanf("%d", &deletedPosition);
+    
+    // inserting values to the arr2
+    int arr2[len-1];
+    for(int i=0; i<len-1; i++)
+    {
+        if(i==deletedPosition-1){ 
+            *(arr2 + i) = *(arr1 + i + 1);
+        }
+        *(arr2 + i) = *(arr1 + i);
+    }
+    
+    printf("The new list is : ");
+    for (int i = 0; i < len-1; i++)
+    {
+        printf("%d ", arr2[i]);
+    }
+    printf("\n");
+}
+
 int main(){
     // answerNumber1();
     // answerNumber2();
@@ -585,6 +697,8 @@ int main(){
     // answerNumber10();
     // answerNumber11();
     // answerNumber12();
-    answerNumber13();
+    // answerNumber13();
+    // answerNumber14();
+    answerNumber15();
     return 0;
 }
