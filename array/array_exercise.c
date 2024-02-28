@@ -684,6 +684,39 @@ void answerNumber15(){
     printf("\n");
 }
 
+/*
+16. Write a program in C to find the second largest element in an array.
+    Test Data :
+    Input the size of array : 5
+    Input 5 elements in the array :
+    element - 0 : 2
+    element - 1 : 9
+    element - 2 : 1
+    element - 3 : 4
+    element - 4 : 6
+    Expected Output :
+    The Second largest element in the array is : 6
+*/
+
+void answerNumber16(){
+
+    char string[] = "fadly";
+    
+    int len=0;
+    while (string != NULL && *string != '\0')
+    {
+        len++;
+        string+1;
+    }
+    
+    for (int i = 0; i < len; i++)
+    {
+        printf("%d", len);
+    }
+    
+    
+}   
+
 int main(){
     // answerNumber1();
     // answerNumber2();
@@ -699,6 +732,8 @@ int main(){
     // answerNumber12();
     // answerNumber13();
     // answerNumber14();
-    answerNumber15();
+    // answerNumber15();
+    answerNumber16();
     return 0;
 }
+
