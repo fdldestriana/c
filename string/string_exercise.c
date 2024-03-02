@@ -39,7 +39,7 @@ Input the string : w3resource.com
 Expected Output :
 
 The characters of the string are : 
-w  3  r  e  s  o  u  r  c  e  .  c
+w  3  r  e  s  o  u  r  c  e  .  c o m
 */
 
 void answerNumber3(){
