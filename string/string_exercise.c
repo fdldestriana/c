@@ -54,7 +54,26 @@ void answerNumber3(){
     }
 }
 
+void answerNumber4(){
+    char str[100];
+    int index = 0;
+    int len = 0;
+    
+    printf("Input the string : ");
+    scanf("%s", str);
+    
+    while(str[index] != '\0'){
+        len++;
+        index++;
+    }
+    
+    while(len >= 0){
+        printf("%c ", str[len-1]);
+        len--;
+    }
+}
+
 int main(){
-    answerNumber1();
+    answerNumber4();
     return 0;
 }
