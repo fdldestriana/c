@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 /*
 0.  Write a function to reversed the string
@@ -30,7 +31,6 @@ void answerNumber0(){
 }
 
 /*
-<<<<<<< Updated upstream
 3. Write a program in C to separate individual characters from a string.
 
 Test Data :
@@ -73,57 +73,121 @@ void answerNumber4(){
     }
 }
 
-int main(){
-    answerNumber4();
-=======
-1.  Write a program in C to input a string and print it.
+/*
+6.  Write a program in C to compare two strings without using string library functions.
+
     Test Data :
-    Input the string : Welcome, w3resource  
-    Expected Output :
-    The string you entered is : Welcome, w3resource 
+    Check the length of two strings:
+    --------------------------------
+    Input the 1st string : aabbcc
+    Input the 2nd string : abcdef
+    String1: aabbcc
+    String2: abcdef
+    Expected Output : Strings are not equal.
+
+    Check the length of two strings:
+    --------------------------------
+    Input the 1st string : aabbcc
+    Input the 2nd string : aabbcc
+    String1: aabbcc
+    String2: aabbcc
+    Expected Output : Strings are equal.
 */
 
-void answerNumber1(){
-    char str1[50]; 
-    char str2[50];
+void answerNumber6(){
+    char string1[50];
+    char string2[50];
+    int indexString1 = 0;
+    int indexString2 = 0;
+    int lenString1 = 0;
+    int lenString2 = 0;
+    bool isEqual = true;
 
-    printf("Input the string : ");
-    scanf("%s", str1);
-    scanf("%s", str2);
+    printf("Check the length of two strings : \n");
+    printf("Input the 1st string : ");
+    scanf("%s", string1);
 
-    printf("The string you entered is : %s %s\n", str1, str2);
+    printf("Input the 2nd string : ");
+    scanf("%s", string2);
+
+    printf("String1: %s\n", string1);
+    printf("String2: %s\n", string2);
+
+    while (string1[indexString1] != '\0')
+    {
+        lenString1++;
+        indexString1++;
+    }
+    
+    while (string2[indexString2] != '\0')
+    {
+        lenString2++;
+        indexString2++;
+    }
+
+    if(lenString1 != lenString2){
+        isEqual = !isEqual;
+    }else{
+        for (int i = 0; i < lenString1; i++)
+        {
+            if (string1[i] == string2[i])
+            {
+                isEqual = isEqual;
+            }else{
+                isEqual = !isEqual;
+                break;
+            }
+            
+        }
+        
+    }
+
+    if (isEqual)
+    {
+        printf("Strings are equal \n");
+    }else {
+        printf("Strings are not equal \n");
+    }
+    
 }
 
 /*
-2.  Write a program in C to find the length of a string without using library functions.
+8.  Write a program in C to copy one string to another string.
     Test Data :
-    Input the string : w3resource.com
+    Input the string : This is a string to be copied.
+
     Expected Output :
-    Length of the string is : 15 
+
+    The First string is : This is a string to be copied.
+    The Second string is : This is a string to be copied. 
+    Number of characters copied : 31 
 */
 
-void answerNumber2(){
-    char str[50];
+void answerNumber8(){
+    char inputString[50];
+    char *string1[50];
+    char *string2[50];
+    int len = 0;
     int index = 0;
-    int count = 0;
 
     printf("Input the string : ");
-    scanf("%s", str);
+    scanf("%s", inputString);
 
-    while (str[index] != '\0')
-    {
+    while (inputString[index] != '\0')
+    {   
+        string1[index] = &inputString[index];
+        string2[index] = string1[index];
         index++;
-        count++;
+        len++;
     }
 
-    printf("Length of the string is : %d\n", count);
+    printf("The first string is : %s\n", *string1);
+    printf("The second string is : %s\n", *string2);
+    printf("Number of characters copied : %d\n", len);
     
 }
 
 int main(){
-    answerNumber0();
-    // answerNumber1();
-    // answerNumber2();
->>>>>>> Stashed changes
+    answerNumber8();
     return 0;
 }
