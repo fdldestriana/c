@@ -187,7 +187,69 @@ void answerNumber8(){
     
 }
 
+/*
+9.  Write a program in C to count the total number of vowels or consonants in a string.
+
+    Test Data :
+    Input the string : Welcome to w3resource.com
+
+    Expected Output :
+
+    The total number of vowel in the string is : 9 
+    The total number of consonant in the string is : 12 
+*/
+
+void answerNumber9(){
+    char *vowels[5] = {"aiueo"};
+    char str[50];
+    int len = 0;
+    int index = 0;
+
+    int vowelsAmount = 0;
+    int consonantsAmount = 0;
+
+    printf("Input the string : ");
+    scanf("%s", str);
+
+    while (str[index] != '\0')
+    {
+        len++;
+        index++;
+    }
+
+    for (int i = 0; i < len; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            if (str[i] == *(*vowels+j))
+            {   
+                vowelsAmount++;
+            }
+            
+        }
+    }
+
+    consonantsAmount = len - vowelsAmount;
+    
+    printf("The total number of vowel in the string is : %d\n", vowelsAmount);
+    printf("The total number of consonant in the string is : %d\n", consonantsAmount);
+    
+}
+
+/*
+10. Write a program in C to find the maximum number of characters in a string.
+
+    Test Data :
+    Input the string : Welcome to w3resource.com.
+
+    Expected Output :
+
+    The Highest frequency of character 'e' appears number of times : 4 
+*/
+
+void answerNumber10(){}
+
 int main(){
-    answerNumber8();
+    answerNumber9();
     return 0;
 }
