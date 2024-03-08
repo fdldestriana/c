@@ -249,7 +249,48 @@ void answerNumber9(){
 
 void answerNumber10(){}
 
+/*
+11. Write a C program to sort a string array in ascending order.
+
+    Test Data :
+    Input the string : w3resource
+
+    Expected Output :
+
+    After sorting the string appears like : 
+    3ceeorrsuw 
+*/
+
+void answerNumber11(){
+    char str[50];
+    int index = 0, len = 0;
+
+    printf("Input the string : ");
+    scanf("%s", str);
+
+    while (str[index] != '\0')
+    {
+        len++;
+        index++;
+    }
+    
+    for (int i = 0; i < len; i++)
+    {   
+        for (int j = i+1; j < len; j++)
+        {
+            if(str[i]+1 > str[j]+1){
+                char tmp = str[i];
+                str[i] = str[j];
+                str[j] = tmp;;
+            }
+        }
+        
+    }
+    
+    printf("After sorting the string appears like : %s\n", str);
+}
+
 int main(){
-    answerNumber9();
+    answerNumber11();
     return 0;
 }
