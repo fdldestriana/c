@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 /*
 0.  Write a function to reversed the string
@@ -290,7 +291,103 @@ void answerNumber11(){
     printf("After sorting the string appears like : %s\n", str);
 }
 
+/*
+12. Write a program in C to read a string from the keyboard and sort it using bubble sort.
+
+    Test Data :
+    Input number of strings : 3
+    Input string 3 :
+    zero
+    one
+    two
+
+    Expected Output :
+
+    The strings appears after sorting : 
+    one 
+    two 
+    zero 
+*/
+
+// void answerNumber12(){
+//     // int one = 'o'+'n'+'e';
+//     // int two = 't' + 'w' + 'o';
+//     // int zero = 'z' + 'e' + 'r' + 'o';
+//     // printf("%d\n", one);
+//     // printf("%d\n", two);
+//     // printf("%d\n", zero);
+
+//     int len;
+//     char *strings;
+//     printf("Input number of strings : ");
+//     scanf("%d", &len);
+
+//     // stringAmount is the length of the array of the string
+//     // 50 is the lengt of the array of the chars for each index in the array of the string
+//     strings = (char*) malloc((50 * len) * sizeof(char));
+
+//     if(strings == NULL){
+//         printf("Memory not allocated.\n");
+//         exit(0);
+//     }else {
+//         printf("Memory successfully allocated using malloc.\n");
+//         for (int i = 0; i < len; i++)
+//         {
+//             scanf("%s\n", &strings[i]);
+//         }
+        
+//     }
+//     for (int i = 0; i < len; i++)
+//     {
+//         printf("%s\n", *(*strings[i]));
+//     }
+// }
+
+/*
+    18. Write a program in C to find the frequency of characters.
+
+    Test Data :
+    Input the string : This is a test string
+    Input the character to find frequency: i
+
+    Expected Output :
+
+    The frequency of 'i' is : 3 
+*/
+
+void answerNumber18(){
+    char str[100];
+    char c;
+    int len = 0;
+    int index = 0;
+    int freq = 0;
+
+    printf("Input the string : ");
+    scanf("%s", str);
+
+    while (str[index] != '\0')
+    {
+        index++;
+        len++;
+    }
+    
+    printf("Input the character to find frequency : ");
+    // adding whitespace to scanf to instruct the method to remove whitespace
+    scanf(" %c", &c);
+
+    for (int i = 0; i < len; i++)
+    {
+        if (str[i] == c)
+        {
+            freq++;
+        }
+        
+    }
+    
+    printf("The frequency of %c is : %d\n", c, freq);
+}
+
 int main(){
-    answerNumber11();
+    answerNumber18();
     return 0;
 }
