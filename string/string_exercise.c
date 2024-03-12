@@ -387,7 +387,67 @@ void answerNumber18(){
     printf("The frequency of %c is : %d\n", c, freq);
 }
 
+/*
+19. Write a program in C to combine two strings manually.
+
+    Test Data :
+    Input the first string : this is string one
+    Input the second string : this is string two
+
+    Expected Output :
+
+    After concatenation the string is : 
+    this is string one this is string two
+*/
+
+void answerNumber19(){
+    char str1[50];
+    char str2[50];
+    char *conStr;
+    int lenStr1 = 0;
+    int lenStr2 = 0;
+    int index = 0;
+
+    printf("Input the first string : ");
+    scanf("%s", str1);
+    while (str1[index] != '\0')
+    {
+        index++;
+        lenStr1++;
+    }
+    index = 0;
+
+    printf("Input the second string : ");
+    scanf("%s", str2);
+    while (str2[index] != '\0')
+    {
+        index++;
+        lenStr2++;
+    }
+
+    conStr = (char*) malloc((lenStr1 + lenStr2) * sizeof(char));
+
+    if(conStr == NULL) {
+        printf("The memory failed to reserved\n");
+    }else{
+        printf("The memory successfully reserved\n");
+        int newIndex = 0;
+        for (int i = 0; i < lenStr1; i++)
+        {
+            conStr[i] = str1[i];
+            newIndex++;
+        }
+        for (int i = 0; i < lenStr2; i++)
+        {
+            conStr[newIndex+i] = str2[i];
+        }
+        printf("After concatenation the string is : %s\n", conStr);
+        free(conStr);
+    }
+
+}
+
 int main(){
-    answerNumber18();
+    answerNumber19();
     return 0;
 }
