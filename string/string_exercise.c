@@ -481,8 +481,49 @@ void answerNumber21(){
     printf("\n");
 }
 
+/*
+22. Write a program in C to convert a string to lowercase.
+
+    Test Data :
+    Input a string in UPPERCASE : THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
+
+    Expected Output :
+
+    Here is the above string in lowercase :                              
+    the quick brown fox jumps over the lazy dog.
+*/
+
+void answerNumber22(){
+    char string[500];
+    int index = 0;
+    int len = 0;
+    int subtractor = 32;
+    printf("Input a string in UPPERCASE : ");
+    fgets(string, 500, stdin);
+
+    while (string[index] != '\0')
+    {
+        index++;
+        len++;
+    }
+
+    printf("Here is the above string in lowercase : ");
+
+    for (int i = 0; i < len; i++)
+    {
+        if(string[i] != ' '){
+            printf("%c", (string[i]+ subtractor));
+        } else{
+            printf(" ");
+        }
+    }
+    
+    printf("\n");
+
+}
+
 int main(){
-    answerNumber21();
+    answerNumber22();
     return 0;
 }
 
